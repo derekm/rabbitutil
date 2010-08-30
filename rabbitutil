@@ -1,0 +1,3 @@
+#!/bin/bash
+
+java -cp js.jar:commons-io-1.2.jar:rabbitmq-client.jar org.mozilla.javascript.tools.shell.Main rabbitutil.js $@
