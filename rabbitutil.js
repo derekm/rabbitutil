@@ -72,7 +72,7 @@ case 'create_bind':
 	queue = arguments[3];
 	key = arguments[4];
 	vhost = (arguments.length > 5) ? arguments[5] : '/';
-	connect(); create_q(); close();
+	connect(); create_bind(); close();
 	break;
 
 case 'delete_bind':
@@ -85,7 +85,7 @@ case 'delete_bind':
 	queue = arguments[3];
 	key = arguments[4];
 	vhost = (arguments.length > 5) ? arguments[5] : '/';
-	connect(); create_q(); close();
+	connect(); delete_bind(); close();
 	break;
 
 case 'inject_msg':
