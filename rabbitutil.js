@@ -190,7 +190,9 @@ function inject_msgs() {
 }
 
 function remove_msg() {
-	res = chan.basicGet(queue, true);
+	var res = chan.basicGet(queue, true);
+	for (header in Iterator(res.getProps().getHeaders().entrySet()))
+		print(header.getKey() + ": " + header.getValue());
 	print(java.lang.String(res.getBody()));
 }
 
