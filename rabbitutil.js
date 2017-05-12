@@ -191,9 +191,12 @@ function inject_msgs() {
 
 function remove_msg() {
 	var res = chan.basicGet(queue, true);
-	for (header in Iterator(res.getProps().getHeaders().entrySet()))
-		print(header.getKey() + ": " + header.getValue());
-	print(java.lang.String(res.getBody()));
+	if (res && res.getProps() && res.getProps().getHeaders())
+		for (header in Iterator(res.getProps().getHeaders().entrySet())) {
+			print(header.getKey() + ": " + header.getValue());
+		}
+	if (res)
+		print(java.lang.String(res.getBody()));
 }
 
 function close() {
